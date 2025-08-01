@@ -1,0 +1,214 @@
+body {
+  /* Remove the global overflow property */
+  overflow-x: visible; /* Allow horizontal scrolling where needed */
+}
+
+/* Home Section */
+.homeSection {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 90vh;
+  text-align: center;
+  opacity: 0; /* Initially hidden */
+  transform: translateY(20px); /* Slightly offset for animation effect */
+  transition: opacity 1s ease-out, transform 1s ease-out; /* Smooth transition */
+}
+
+.socialLinks {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.socialLink {
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.socialLink:hover {
+  transform: translateY(-3px);
+}
+
+.socialLink::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(165, 180, 252, 0.1);
+  border-radius: 50%;
+  transform: scale(0);
+  transition: transform 0.3s ease;
+}
+
+.socialLink:hover::before {
+  transform: scale(1.2) translate(-50%, -50%);
+}
+
+.socialIcon {
+  color: #fff;
+  padding: 0.5rem;
+  border-radius: 50%;
+  z-index: 1;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.socialLink:hover .socialIcon {
+  color: #a5b4fc;
+  filter: drop-shadow(0 4px 6px rgba(165, 180, 252, 0.3));
+}
+
+/* Main Section */
+section {
+  display: flex;
+  justify-content: center; /* Center the card within the section */
+  align-items: center;
+  /* padding: 20px; */
+  box-sizing: border-box;
+  margin-top: 60px; /* Ensure space for the navbar */
+}
+
+/* Card Container */
+.card {
+  display: flex;
+  flex-direction: row; /* Align text and model in a row */
+  justify-content: space-between; /* Create space between text and model */
+  align-items: center;
+  border-radius: 15px; /* Rounded corners */
+  padding: 20px;
+  width: 90%; /* Card width */
+  max-width: 1200px; /* Maximum card width */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+  overflow: hidden;
+  position: relative;
+  z-index: 10; /* Ensure the card content is not behind the canvas */
+  height: 40em;
+}
+
+/* Text Section */
+.textSection {
+  flex: 1;
+  padding: 20px;
+  max-width: 50%; /* Restrict text section width */
+  text-align: left; /* Align text to the left */
+  color: #fff; /* Text color */
+  position: relative;
+  z-index: 60000;
+}
+
+.textSection h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  font-family: "Arial", sans-serif;
+  margin-bottom: 15px;
+  color: #f6f6f6; /* Golden title color */
+}
+
+.textSection p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.textSection ul {
+  margin: 15px 0;
+  padding-left: 20px;
+  list-style-type: disc;
+}
+
+.textSection li {
+  margin-bottom: 10px;
+  font-size: 1rem;
+  color: #ddd;
+}
+
+/* Media Section (Canvas with 3D Model) */
+.mediaSection {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  max-width: 50%; /* Restrict media section width */
+}
+
+canvas {
+  border-radius: 10px; /* Optional: Round the canvas edges */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+}
+
+/* Loader Styling */
+.loader {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-top: 20px;
+  color: #fefefe; /* Match the title color */
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .card {
+    flex-direction: column; /* Stack items vertically */
+    padding: 15px;
+  }
+
+  .textSection {
+    max-width: 90%;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .mediaSection {
+    width: 100%;
+    height: 300px; /* Adjust the canvas height */
+  }
+
+  .textSection h1 {
+    font-size: 2rem; /* Smaller title size */
+  }
+
+  .textSection p {
+    font-size: 1rem; /* Smaller paragraph size */
+  }
+
+  .textSection li {
+    font-size: 0.9rem; /* Smaller font for list items */
+  }
+}
+
+/* Add this to your main.module.css */
+.mediaSection {
+  width: 100%;
+  height: 70vh;
+  /* Ensure the container scales on smaller screens */
+}
+
+@media (max-width: 768px) {
+  .mediaSection {
+    height: 50vh; /* Adjust the height for smaller screens */
+  }
+}
+
+/* General container for the form */
+.overlayForm {
+  position: absolute;
+  top: 20%; /* Adjust according to where you want the form */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+  padding: 20px;
+  border-radius: 8px;
+  z-index: 1000; /* Ensure the form stays on top of the canvas */
+  width: 80%; /* Adjust width as necessary */
+  max-width: 500px;
+  text-align: center;
+}
+
+.hero {
+  position: relative;
+}

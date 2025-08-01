@@ -1,0 +1,104 @@
+.skillsSection {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  flex-direction: column;
+  height: 90vh; /* Full viewport height */
+  text-align: center;
+  opacity: 0; /* Initially hidden */
+  transform: translateY(20px); /* Slightly offset for animation effect */
+  transition: opacity 1s ease-out, transform 1s ease-out; /* Smooth transition */
+  box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+  padding: 20px;
+}
+
+.fadeIn {
+  opacity: 1; /* Fully visible */
+  transform: translateY(0); /* Normal position */
+}
+
+.fadeOut {
+  opacity: 0; /* Hidden when scrolling up */
+  transform: translateY(
+    20px
+  ); /* Slightly offset to simulate a scroll-up effect */
+}
+
+.container {
+  max-width: 800px;
+  padding: 20px;
+}
+
+.heading {
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  letter-spacing: 2px; /* Adds spacing between letters */
+  text-transform: uppercase; /* Modern typography */
+}
+
+.skillsList {
+  list-style-type: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns on large screens */
+  gap: 20px;
+  margin: 0;
+}
+
+.skillItem {
+  background: linear-gradient(
+    135deg,
+    #ffffff1e,
+    #ffffff1e
+  ); /* Gradient background */
+  color: white;
+  padding: 20px 15px; /* More padding for spacing */
+  border-radius: 8px; /* Slightly rounded corners */
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skillItem:hover {
+  transform: translateY(-8px); /* More prominent hover effect */
+  background: linear-gradient(
+    160deg,
+    #ffffffad,
+    #00000062
+  ); /* Lighter green on hover */
+  color: #000000;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+}
+
+/* Adjust the grid for medium screens */
+@media (max-width: 1024px) {
+  .skillsList {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns on medium screens */
+  }
+}
+
+/* Adjust the grid for smaller screens */
+@media (max-width: 768px) {
+  .skillsList {
+    grid-template-columns: 1fr 1fr; /* 2 columns on small screens */
+  }
+
+  .heading {
+    font-size: 32px; /* Smaller heading font size */
+  }
+
+  .skillItem {
+    font-size: 16px; /* Smaller skill item font size */
+    padding: 15px; /* Adjust padding for mobile */
+  }
+}
+
+/* Single column for very small screens */
+@media (max-width: 480px) {
+  .skillsList {
+    grid-template-columns: 1fr 1fr; /* 1 column on extra small screens */
+  }
+}

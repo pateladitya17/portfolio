@@ -1,0 +1,125 @@
+.projectsSection {
+  padding: 50px 0;
+  /* background-color: #f5f5f5; */
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.heading {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.projectsList {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  justify-items: center;
+  padding: 20px;
+}
+
+.projectCard {
+  background-color: rgba(255, 255, 255, 0.301);
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 100%;
+  height: 520px;
+  max-width: 300px;
+  text-align: center;
+  opacity: 0; /* Initially hidden */
+  transform: translateX(100%); /* Start off-screen */
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out; /* Smooth transition */
+}
+
+.projectCard img {
+  width: 100%;
+  height: 35%;
+  border-bottom: 2px solid #f1f1f1;
+}
+
+.projectTitle {
+  font-size: 24px;
+  margin-top: 15px;
+}
+
+.projectDescription {
+  font-size: 16px;
+  /* color: #666; */
+  margin-bottom: 20px;
+}
+.projectLink {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #f3ecec;
+  color: #0b0a0a;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  transition: background-color 0.3s ease;
+  /* -webkit-backdrop-filter: blur(10px); */
+}
+
+.projectLink:hover {
+  background-color: #0b0a0a;
+  color: #f3ecec;
+}
+
+/* Animation for sliding from left and right */
+@keyframes slideFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Add animation classes for each direction */
+.slideFromLeft {
+  animation: slideFromLeft 0.8s ease-out forwards;
+}
+
+.slideFromRight {
+  animation: slideFromRight 0.8s ease-out forwards;
+}
+
+/* Reverse animation for when scrolling up */
+.reverseAnimation {
+  animation: none; /* No animation when scrolling up */
+  transform: translateX(100%); /* Reset to initial position */
+  opacity: 0; /* Make the card invisible */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .projectsList {
+    grid-template-columns: 1fr; /* Stack the cards on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .heading {
+    font-size: 28px; /* Smaller heading for mobile */
+  }
+  .projectCard {
+    max-width: 250px; /* Smaller cards for mobile */
+  }
+}
